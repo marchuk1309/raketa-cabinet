@@ -1,0 +1,110 @@
+@import "../fonts/stylesheet.css";
+
+html {
+  font-size: 14px;
+  font-family: "Gilroy", sans-serif;
+}
+
+body {
+  font-family: "Gilroy", sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+* {
+  outline: none!important;
+}
+
+.flex {
+  display: flex;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.jc-fe {
+  justify-content: flex-end;
+}
+
+.fw-w {
+  flex-wrap: wrap;
+}
+
+.fd-c {
+  flex-direction: column;
+}
+
+.fg-2 {
+  flex-grow: 2;
+}
+
+a.link {
+  color: $primary;
+  text-decoration: underline;
+  cursor: pointer;
+  &.danger {
+    color: #f82319;
+    &:hover {
+      color: darken(#f82319, 15%);
+    }
+  }
+  &:hover {
+    color: darken($primary, 10%);
+    text-decoration: underline;
+  }
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+.lh-2 {
+  line-height: 1.4;
+}
+
+.ml-a {
+  margin-left: auto;
+}
+
+.w-40 {
+  width: 40%!important;
+}
+
+.w-32 {
+  width: 32%!important;
+}
+
+.w-65 {
+  width: 65%!important;
+}
+
+.fz-14 {
+  font-size: 14px;
+}
+
+.big-text {
+  font-size: 1.25rem;
+}
+
+.inputs__field {
+  background-color: #f7fafc;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

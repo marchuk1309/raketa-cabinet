@@ -1,0 +1,149 @@
+// Variables
+$primary: #16b9ff;
+
+@import "~bootstrap";
+
+// Component styles
+.dropdown-menu {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+  border: none;
+  margin-top: 1em;
+}
+
+.dropdown-toggle {
+  outline: none!important;
+}
+.dropdown-menu {
+  padding: 0!important;
+}
+.dropdown-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 2em;
+  border: none;
+  border-radius: 3px;
+  box-shadow: $cardShadow;
+}
+
+.btn {
+  &.primary {
+    background: $primaryGrag;
+    color: #ffffff;
+  }
+  &.orange {
+    background: $orangeGrad;
+    color: #ffffff;
+  }
+}
+
+.btn:focus, .btn.focus {
+  box-shadow: none;
+}
+
+.form-control {
+  background: $themeGray;
+}
+
+.table-hover tbody tr {
+  cursor: pointer;
+}
+
+.mx-input:hover, .mx-input:focus {
+  border-color: $primary!important;
+}
+
+.multiselect__tags {
+  padding-top: 6px!important;
+  padding-left: 1rem!important;
+  background-color: #f7fafc!important;
+  border: 1px solid #ced4da!important;
+}
+.multiselect__single {
+  background: transparent!important;
+  margin-bottom: 8px!important;
+  padding-left: 0!important;
+}
+.multiselect {
+  font-size: 1.25rem!important;
+}
+
+.multiselect__placeholder {
+  margin-bottom: 8px!important;
+  color: lighten(#495057, 50%)!important;
+}
+.multiselect__single {
+  font-size: 1.25rem!important;
+}
+
+.multiselect__tags {
+  padding-left: 1.25rem;
+  min-height: 42.5px;
+}
+.multiselect__option--highlight {
+  background: $primary!important;
+  &:after {
+    content: none!important;
+  }
+}
+.multiselect__placeholder, .multiselect__input {
+  padding-top: 0!important;
+  padding-left: 0!important;
+  color: #495057!important;
+  font-size: 1.25rem!important;
+}
+.multiselect__tag {
+  background: $primary!important;
+  &-icon {
+    &:hover {
+      background: $primary!important;
+    }
+  }
+}
+.multiselect__input {
+  display: none!important;
+}
+.multiselect__tag-icon {
+  line-height: 1;
+  padding: 5px 0;
+}
+.multiselect_small .multiselect__tags {
+  padding-right: 30px!important;
+}
+.multiselect_small .multiselect__placeholder, .multiselect_small .multiselect__input {
+  font-size: 1rem!important;
+  line-height: 26.2px!important;
+}
+.multiselect__input, .multiselect__single {
+  line-height: 26.2px!important;
+}
+.ui.selection.dropdown:hover {
+  border-color: $primary!important;
+}
+
+.ui.selection.dropdown {
+  border: 1px solid #ced4da!important;
+}
+
+.ui.selection.dropdown {
+  min-height: 42.5px!important;
+  line-height: 42.5px!important;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.ui.fluid.dropdown > .dropdown.icon {
+  height: 100%!important;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  line-height: 42.5px!important;
+}
+.ui.search.dropdown > input.search {
+  height: 100%!important;
+}
+.ui.search.dropdown > .text {
+  font-size: 1.25rem!important;
+}

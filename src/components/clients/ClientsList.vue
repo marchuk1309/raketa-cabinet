@@ -40,7 +40,7 @@
         <div class="client-email">{{client.email}}</div>
         <div class="d-flex ai-c">
           <my-button class="mr-4" size="medium">Транзакции</my-button>
-          <a href=""><font-awesome-icon size="lg" :icon="['fas', 'file']"/></a>
+          <a href=""><font-awesome-icon size="lg" :icon="['fas', 'sign-in-alt']"/></a>
         </div>
       </div>
     </div>
@@ -105,6 +105,10 @@
           svg {
             width: 30px;
           }
+          &:hover, &:focus {
+            background: $primaryGrag;
+            color: #ffffff;
+          }
         }
       }
     }
@@ -125,6 +129,7 @@
     padding: 20px 45px;
     margin-bottom: 16px;
     position: relative;
+    border-radius: 3px;
     &-avatar {
       width: 54px;
       min-width: 54px;
@@ -169,6 +174,9 @@
       }
       a:not(:hover) {
         color: #b1b1b1;
+      }
+      a:hover {
+        color: $primary;
       }
     }
     > div {

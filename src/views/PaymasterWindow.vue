@@ -5,6 +5,9 @@
         <div class="paymaster-card__header">
           <font-awesome-icon class="paymaster-card__header--icon" :icon="['fas', 'user-circle']"/>
           <h4>{{step === 0 ? step1title : step2title}}</h4>
+          <div @click="backToStep1" v-if="step" class="paymaster-card__back">
+            <font-awesome-icon :icon="['fas', 'arrow-left']"/>
+          </div>
         </div>
         <ul v-if="step === 0" class="paymaster-card__menu">
           <li
@@ -186,7 +189,11 @@
           this.step = 1
           return 0
         }
+        this.step = 0
         sessionStorage.setItem('paymasterWindowTab', item.id)
+      },
+      backToStep1() {
+        this.setTab(this.menuItemsStep1.find(el => el.id === +sessionStorage.getItem('paymasterWindowTab')))
       },
       selectClient(client) {
         this.currentClient = client
@@ -217,6 +224,7 @@
       padding: 2em;
       display: flex;
       align-items: center;
+      position: relative;
       &--icon {
         font-size: 2rem;
         margin-right: 1.5rem;
@@ -224,6 +232,20 @@
       h4 {
         margin: 0;
       }
+    }
+    &__back {
+      position: absolute;
+      left: auto;
+      right: 0;
+      top: 0;
+      background: $orangeGrad;
+      height: 100%;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
     &__menu {
       padding: 0;

@@ -40,7 +40,7 @@
         {{ data.value.name || 'Аноним' }}, г. {{ data.value.city || 'Анонимовск' }} <br>
         {{ data.value.card || '0000 0000 0000 0000' }}
       </template>
-      <template v-slot:cell(admissionSum)="data">
+      <template v-slot:cell(sum)="data">
         {{ data.value }} р.
       </template>
       <template v-slot:cell(status)="data">
@@ -85,7 +85,7 @@
               }},
             {key: 'company', label: 'Название заведения'},
             {key: 'requestSum', sortable: true, label: 'Сумма заказа'},
-            {key: 'admissionSum', sortable: true, label: 'Ваш доход'},
+            {key: 'sum', sortable: true, label: 'Ваш доход'},
             {key: 'status', label: 'Статус'}
           ],
         },
@@ -102,7 +102,39 @@
               }},
             {key: 'company', label: 'Название заведения'},
             {key: 'referral', sortable: true, label: 'Реферал'},
-            {key: 'admissionSum', sortable: true, label: 'Ваш доход'},
+            {key: 'sum', sortable: true, label: 'Ваш доход'},
+            {key: 'status', label: 'Статус'}
+          ],
+        },
+        {
+          str: 'Пополнения',
+          type: 'admissions',
+          fields: [
+            {key: 'date', sortable: true, label: 'Дата и время'},
+            {key: 'operationNumber', label: 'Номер операции'},
+            {key: 'cardNumber', label: 'Номер карты', formatter: value => {
+                let newString = value.slice(0, 5) + '...'
+                newString += value.slice(-5)
+                return newString
+              }},
+            {key: 'admissionsType', label: 'Способ пополнения'},
+            {key: 'sum', sortable: true, label: 'Сумма'},
+            {key: 'status', label: 'Статус'}
+          ],
+        },
+        {
+          str: 'Переводы',
+          type: 'transfers',
+          fields: [
+            {key: 'date', sortable: true, label: 'Дата и время'},
+            {key: 'operationNumber', label: 'Номер операции'},
+            {key: 'cardNumber', label: 'Номер карты', formatter: value => {
+                let newString = value.slice(0, 5) + '...'
+                newString += value.slice(-5)
+                return newString
+              }},
+            {key: 'senderName', label: 'Отправитель'},
+            {key: 'sum', sortable: true, label: 'Сумма перевода'},
             {key: 'status', label: 'Статус'}
           ],
         }
@@ -125,7 +157,6 @@
           transType: 'admission',
           subType: this.currentTab.type
         }
-        console.log(this.currentFilter)
         this.currentList = this.$store.getters.getTransitionsByParams(this.currentFilter)
       }
     },

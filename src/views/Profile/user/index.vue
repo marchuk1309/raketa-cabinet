@@ -1,5 +1,5 @@
 <template>
-  <div :style="{alignItems: stretch ? 'stretch' : 'flex-start'}" class="profile-body flex jc-sb">
+  <div class="profile-body flex jc-sb">
     <user-card></user-card>
     <router-view></router-view>
   </div>
@@ -14,14 +14,6 @@
     components: {
       UserCard
     },
-    computed: {
-      stretch() {
-        if (this.$route.name !== "profileSettings") {
-          return false
-        }
-        return true
-      }
-    },
     mounted() {
       this.$store.commit('changeUserStatus', 'user')
     }
@@ -29,4 +21,7 @@
 </script>
 
 <style lang="scss" scoped>
+  .profile-body {
+    align-items: flex-start;
+  }
 </style>

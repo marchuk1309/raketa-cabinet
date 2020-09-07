@@ -1,5 +1,11 @@
 <template>
   <div class="main-header">
+    <a class="main-header__link-btn" href="http://raketa.fobesko.com/online-catalog.html" target="_blank">
+      <my-button class="mr-2" color="orange" shadow type="squared">
+        <font-awesome-icon class="my-btn__icon" :icon="['fas', 'shopping-bag']"/>
+        К покупкам
+      </my-button>
+    </a>
     <b-dropdown v-if="userStatus === 'user'" class="main-header__dropdown" right size="small"  variant="link" toggle-class="text-decoration-none" no-caret>
       <template v-slot:button-content>
         <div class="main-header__item main-header__bonuses">
@@ -19,7 +25,8 @@
           </div>
           <div>
             <p class="main-header__dropdown--name">{{discount.name}}</p>
-            <p class="main-header__dropdown--descript">{{discount.descript}} <router-link to="/">Перейти</router-link></p>
+            <p class="main-header__dropdown--descript">{{discount.descript}}</p>
+            <router-link to="/">Перейти</router-link>
           </div>
         </div>
         <div class="py-2"></div>
@@ -47,7 +54,8 @@
           </div>
           <div>
             <p class="main-header__dropdown--name">{{notice.name}}</p>
-            <p class="main-header__dropdown--descript">{{notice.descript}} <router-link to="/">Перейти</router-link></p>
+            <p class="main-header__dropdown--descript">{{notice.descript}}</p>
+            <router-link to="/">Перейти</router-link>
           </div>
         </div>
         <div class="py-2"></div>
@@ -143,14 +151,18 @@
     align-items: center;
     width: 100%;
     padding-right: 22em;
-    z-index: 2;
+    z-index: 10;
     position: relative;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
     @media (max-width: 1600px) {
       padding-right: 2em;
     }
+    &__link-btn {
+      text-decoration: none;
+    }
     &__dropdown {
       &-head {
+        border-radius: 3px 3px 0 0;
         margin-top: -0.5rem;
         background-color: #f9fafc;
         padding: 15px 19px;
@@ -163,11 +175,13 @@
         }
         span {
           color: #ffffff;
-          background-image: linear-gradient(to top, #f80723 0%, #f00000 100%);
+          background: $redGrad;
           width: 20px;
           height: 20px;
-          line-height: 22px;
-          text-align: center;
+          line-height: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           border-radius: 50%;
         }
       }
@@ -176,9 +190,11 @@
         overflow-y: scroll;
       }
       &-row {
-        padding: 5px 19px;
+        margin: 0 19px;
+        padding: 10px 0;
         display: flex;
         align-items: center;
+        border-bottom: 1px solid #eeeeee;
         p {
           margin: 0;
           line-height: 16px;
@@ -216,6 +232,7 @@
         margin-bottom: 4px!important;
       }
       &--btn {
+        border-radius: 0 0 3px 3px;
         background-color: $primary;
         margin-bottom: -.5rem;
         transition: .2s;

@@ -27,7 +27,7 @@
         <router-view/>
       </div>
     </section>
-    <right-panel />
+    <right-panel v-if="userStatus === 'user'" />
   </section>
 </template>
 
@@ -36,6 +36,7 @@
   import AppHeader from "../components/global/Header";
   import Sidebar from "../components/global/Sidebar";
   import RightPanel from "../components/global/RightPanel/index";
+  import {mapGetters} from "vuex";
   export default {
     components: {
       Sidebar,
@@ -43,6 +44,7 @@
       RightPanel
     },
     computed: {
+      ...mapGetters(['userStatus']),
       title() {return this.$store.state.siteTitle},
       siteContext() {return this.$store.state.siteContext},
       breadcrumbs() {

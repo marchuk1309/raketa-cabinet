@@ -49,6 +49,9 @@
       <template v-slot:cell(admissionSum)="data">
         {{ data.value }} р.
       </template>
+      <template v-slot:cell(sum)="data">
+        {{ data.value }} р.
+      </template>
       <template v-slot:cell(deductionSum)="data">
         {{ data.value }} р.
       </template>
@@ -94,7 +97,7 @@
               }},
             {key: 'company', label: 'Название заведения'},
             {key: 'requestSum', sortable: true, label: 'Сумма покупки'},
-            {key: 'admissionSum', sortable: true, label: 'Сумма списания'},
+            {key: 'sum', sortable: true, label: 'Кэшбэк'},
             {key: 'status', label: 'Статус'}
           ],
         },
@@ -134,7 +137,23 @@
             {key: 'description', label: 'Описание', formatter: value => {
               return value.slice(0, 90)
               }},
-            {key: 'admissionSum', sortable: true, label: 'Сумма покупки'},
+            {key: 'deductionSum', sortable: true, label: 'Сумма'},
+            {key: 'status', label: 'Статус'}
+          ],
+        },
+        {
+          str: 'Переводы',
+          type: 'transfers',
+          fields: [
+            {key: 'date', sortable: true, label: 'Дата и время'},
+            {key: 'operationNumber', label: 'Номер операции'},
+            {key: 'cardNumber', label: 'Номер карты', formatter: value => {
+                let newString = value.slice(0, 5) + '...'
+                newString += value.slice(-5)
+                return newString
+              }},
+            {key: 'writeOffMethod', label: 'Способ вывода'},
+            {key: 'deductionSum', sortable: true, label: 'Сумма'},
             {key: 'status', label: 'Статус'}
           ],
         }

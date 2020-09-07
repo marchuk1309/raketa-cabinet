@@ -1,22 +1,23 @@
 <template>
-  <div class="user-card card">
+  <div class="company-card card">
     <div class="balance flex jc-sb">
       <div class="balance-left">
         <p>Клиентов <br> {{12908 | number}}</p>
       </div>
     </div>
-    <div class="user-card__avatar">
-      <div class="user-card__avatar__wrapper">
-        <img :src="avatar.src" alt="">
+    <div class="company-card__avatar">
+      <div class="company-card__avatar__wrapper">
+        <img v-if="avatar.src" :src="avatar.src" alt="">
+        <img v-else src="../../../assets/images/company-logo.png" alt="">
       </div>
       <a v-b-modal.add-user-avatar class="change-avatar"></a>
       <span class="change-avatar__barge">
         <font-awesome-icon :icon="['fas', 'plus']"/>
       </span>
     </div>
-    <div class="user-card__name text-center">ООО "Божий промысел"</div>
-    <div class="user-card__status text-center">Статус партнера</div>
-    <div class="user-card__buttons flex">
+    <div class="company-card__name text-center">ООО "Божий промысел"</div>
+    <div class="company-card__status text-center">Статус партнера</div>
+    <div class="company-card__buttons flex">
       <my-button color="primary" shadow type="squared">
         <font-awesome-icon class="my-btn__icon" :icon="['fas', 'chart-pie']"/>
         Сводка
@@ -26,12 +27,12 @@
         Окно кассира
       </my-button>
     </div>
-    <div class="user-card__links">
-      <router-link class="user-card__link" active-class="active" :to="{name: 'companySettings'}">
-        <b-icon-gear-fill class="mr-3"/>
+    <div class="company-card__links">
+      <router-link class="company-card__link" active-class="active" :to="{name: 'companySettings'}">
+        <font-awesome-icon :icon="['fas', 'cog']" class="mr-3"/>
         Настройки аккаунта
       </router-link>
-      <router-link class="user-card__link" active-class="active" :to="{name: 'companySupport'}">
+      <router-link class="company-card__link" active-class="active" :to="{name: 'companySupport'}">
         <font-awesome-icon :icon="['fas', 'life-ring']" class="mr-3"/>
         Поддержка
       </router-link>
@@ -66,7 +67,7 @@
     data: () => ({
       newAvatar: null,
       avatar: {
-        src: 'https://www.aalforum.eu/wp-content/uploads/2016/04/profile-placeholder.png'
+        src: ''
       }
     }),
     methods: {
@@ -79,18 +80,13 @@
 </script>
 
 <style lang="scss" scoped>
-  .user-card {
+  .company-card {
     width: 25em;
     padding-top: 3em;
     &__avatar {
       width: 12em;
       height: 12em;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 50%;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-      border: 3px solid #fff;
-      margin-bottom: 2em;
+      margin: 2em auto ;
       position: relative;
       @media (max-width: 1600px) {
         margin-bottom: 1em;
@@ -101,7 +97,6 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        border-radius: 50%;
       }
       img {
         width: 100%;

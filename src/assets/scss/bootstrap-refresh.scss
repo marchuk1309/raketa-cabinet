@@ -48,6 +48,14 @@ $primary: #16b9ff;
   background: $themeGray;
 }
 
+.vue-tel-input {
+  border: 1px solid #ced4da !important;
+}
+
+.ui.selection.active.dropdown, .ui.selection.active.dropdown .menu {
+  border-color: $primary!important;
+}
+
 .table-hover tbody tr {
   cursor: pointer;
 }
@@ -107,7 +115,7 @@ $primary: #16b9ff;
   display: none!important;
 }
 .multiselect__tag-icon {
-  line-height: 1;
+  line-height: 12px!important;
   padding: 5px 0;
 }
 .multiselect_small .multiselect__tags {

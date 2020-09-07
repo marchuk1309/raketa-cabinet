@@ -32,6 +32,7 @@
           collapseState: false,
           icon: 'credit-card',
           children: [
+            {title: 'Все карты', name: 'MyCards'},
             {title: 'Карта 1', name: 'TransAdmission'},
             {title: 'Карта 2', name: 'TransWriteOff'}
           ]
@@ -160,7 +161,7 @@
     top: 0;
     min-height: 100vh;
     height: 100%;
-    z-index: 3;
+    z-index: 11;
     width: 14em;
     transition: .5s;
     &-burger {

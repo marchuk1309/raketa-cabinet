@@ -31,7 +31,7 @@
     </div>
     <div class="user-card__links">
       <router-link class="user-card__link" active-class="active" :to="{name: 'profileSettings'}">
-        <b-icon-gear-fill class="mr-3"/>
+        <font-awesome-icon :icon="['fas', 'cog']" class="mr-3"/>
         Настройки аккаунта
       </router-link>
       <router-link class="user-card__link" active-class="active" :to="{name: 'profileSupport'}">

@@ -27,7 +27,6 @@
   import LegalInfo from "../../../components/profile/company/LegalInfo";
   import Contacts from "../../../components/profile/company/Contacts";
   import Socials from "../../../components/profile/company/Socials";
-  import Staff from "../../../components/profile/company/Staff";
   export default {
     name: 'ProfileSettings',
     data: () => ({
@@ -37,7 +36,6 @@
         {str: 'Юр. данные', component: LegalInfo},
         {str: 'Контакты', component: Contacts},
         {str: 'Соцсети', component: Socials},
-        {str: 'Сотрудники', component: Staff},
       ]
     }),
     methods: {
